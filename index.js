@@ -22,7 +22,7 @@ function slide(){
 setInterval(() => {
     current += 1
     slide()
-}, 3000);
+}, 25000);
 
 next.addEventListener(('click'), () => {
     
