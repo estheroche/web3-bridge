@@ -6,6 +6,16 @@ images.forEach((image, index) => {
     image.style.left = `${index * 100}%`
 })
 
+let interval = settingInterval()
+
+ function settingInterval(){
+    setInterval(() => {
+        current += 1
+        slide()
+    }, 10000);
+ }
+
+
 function slide(){
     if(current > images.length -1 ){
         current = 0
@@ -19,13 +29,10 @@ function slide(){
     })
 }
 
-setInterval(() => {
-    current += 1
-    slide()
-}, 25000);
 
 next.addEventListener(('click'), () => {
-    
+    clearInterval(interval)
+    interval = settingInterval()
     if(current < images.length){
         current = current + 1
         slide()
@@ -33,6 +40,8 @@ next.addEventListener(('click'), () => {
 })
 
 prev.addEventListener(('click'), () => {
+    clearInterval(interval)
+    interval = settingInterval()
     if(current > 0){
         current = current - 1
         slide()
